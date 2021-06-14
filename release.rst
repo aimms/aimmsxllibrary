@@ -1,4 +1,4 @@
-AIMMSXLLibrary Release Notes
+Release Notes
 ==================================
 
 The first public release of the AIMMSXLLibrary was version 1.1.0.8, release date June 8, 2021. 
