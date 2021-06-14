@@ -11,17 +11,17 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
+
+import os
+
 # sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = u'master'
-copyright = u'2020, AIMMS User Support'
+copyright = u'2021, AIMMS User Support'
 author = u'AIMMS User Support'
-
-book_title = "Change me in conf.py"
 
 # The short X.Y version
 version = u''
@@ -38,11 +38,10 @@ release = u''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.doctest',
     'sphinx.ext.todo',
-    'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
+	  'sphinx.builders.linkcheck',
     'sphinx.ext.intersphinx',
     'sphinx_aimms_theme',
 ]
@@ -56,6 +55,12 @@ intersphinx_mapping = {'aimmsdoc': ('https://documentation.aimms.com',
                        'lr': ('https://documentation.aimms.com/language-reference/',
                                   None),}
  
+
+if os.name != 'nt':
+
+#Import spelling extension
+    extensions.append('sphinx_sitemap')
+    extensions.append('sphinx_last_updated_by_git')
 
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates']
@@ -98,6 +103,17 @@ html_theme = 'sphinx_aimms_theme'
 # further.  For a list of options available for each theme, see the
 # documentation. https://gitlab.com/ArthurdHerbemont/sphinx-aimms-theme/-/tree/master/  
 
+if os.name == 'nt':
+   
+   Display_edit_on_gitlab = True
+   # if builds locally (a windows machine), do not displays external extensions (Google Analytics, Community Embeddable, Algolia search, etc.)
+   Display_3rd_Party_Extensions = False
+else:
+
+   # if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown, and displays external extensions (Google Analytics, Community Embeddable, Algolia search, etc.)
+   Display_edit_on_gitlab = False
+   Display_3rd_Party_Extensions = True
+
 html_theme_options = {
 
     #'home_page': 'index',
@@ -105,8 +121,13 @@ html_theme_options = {
     'home_page_title': 'AIMMSXLLibrary documentation',
     'home_page_description': "This is the documentation for the AIMMSXLLibrary allowing you to read from and write to .xlsx or .xls (Excel) files.",
     'display_community_embeddable' : False,
-    'generate_google_analytics' : False,
-    'display_algolia_search' : False,
+    'display_community_embeddable' : Display_3rd_Party_Extensions,
+    'google_analytics_id': 'UA-1290545-13',
+    'generate_google_analytics' : Display_3rd_Party_Extensions,
+    'display_algolia_search' : Display_3rd_Party_Extensions,
+    'algolia_appid': 'BH4D9OD16A', 
+    'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
+    'algolia_indexname': 'aimms',
     'display_local_toc' : True,
 
 }
@@ -134,8 +155,10 @@ html_theme_options = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'book-testdoc'
+htmlhelp_basename = 'AIMMSdoc'
 
+# index page for your site
+html_baseurl = 'https://documentation.aimms.com/aimmsxllibrary/'
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -161,7 +184,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'master.tex', book_title,
+    (master_doc, 'master.tex', 'AIMMSXLLibrary documentation',
      u'AIMMS User Support', 'manual', True),
 ]
 
@@ -171,14 +194,14 @@ latex_show_pagerefs = True
 
 latex_show_urls = 'footnote'
 
-latex_additional_files = ['_fortex/Makefile', '_static/AIMMS_CodeBlock.css']
+latex_additional_files = ['_fortex/Makefile']
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'master', book_title,
+    (master_doc, 'master', 'AIMMSXLLibrary documentation',
      [author], 1)
 ]
 
@@ -189,7 +212,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'book-test', book_title,
+    (master_doc, 'book-test', 'AIMMSXLLibrary documentation',
      author, 'book-test', 'One line description of project.',
      'Miscellaneous'),
 ]
