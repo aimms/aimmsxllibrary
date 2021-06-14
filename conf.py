@@ -120,10 +120,10 @@ html_theme_options = {
     'doc_title' : 'AIMMSXLLibrary docs',
     'home_page_title': 'AIMMSXLLibrary documentation',
     'home_page_description': "This is the documentation for the AIMMSXLLibrary allowing you to read from and write to .xlsx or .xls (Excel) files.",
-    'display_community_embeddable' : False,
     'display_community_embeddable' : Display_3rd_Party_Extensions,
     'google_analytics_id': 'UA-1290545-13',
     'generate_google_analytics' : Display_3rd_Party_Extensions,
+    'display_algolia_search': False
     'display_local_toc' : True,
 
 }
