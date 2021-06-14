@@ -9,7 +9,7 @@ The AimmsXLLibrary can communicate with Excel files in server environments where
   
   using
   example
-  docs/index
+  api/index
   release
 
    

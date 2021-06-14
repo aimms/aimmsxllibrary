@@ -4,14 +4,14 @@ import pdb
 
 def output_global_rst(global_rst,file,fileNames):
 
-    if not os.path.exists('docs/'):
-       os.makedirs('docs/')
+    if not os.path.exists('api/'):
+       os.makedirs('api/')
        
     for k in range(len(fileNames)):
       if file.find('/') != -1:
-        out = open('docs/' + '/'.join(file.split('.ams')[0].split('/')[0:-1])+"/"+ fileNames[k] +".rst",'w+')
+        out = open('api/' + '/'.join(file.split('.ams')[0].split('/')[0:-1])+"/"+ fileNames[k] +".rst",'w+')
       else:
-        out = open('docs/' + fileNames[k] +".rst",'w+')
+        out = open('api/' + fileNames[k] +".rst",'w+')
       out.write(global_rst[k])
       out.close()
 
