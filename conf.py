@@ -123,7 +123,7 @@ html_theme_options = {
     'display_community_embeddable' : Display_3rd_Party_Extensions,
     'google_analytics_id': 'UA-1290545-13',
     'generate_google_analytics' : Display_3rd_Party_Extensions,
-    'display_algolia_search': False
+    'display_algolia_search': False,
     'display_local_toc' : True,
 
 }
