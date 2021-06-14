@@ -12,12 +12,12 @@ before_script:
   - python3.8 -mpip install --upgrade  pip
   - python3.8 -mpip install -U sphinx sphinx-sitemap sphinx-last-updated-by-git sphinxcontrib-bibtex sphinxcontrib-spelling
   - python3.8 -mpip install -I sphinx-aimms-theme
-  - python3 ams2rst_script/ConvertAMS2RST.py AimmsXLLibrary.ams
+  - python3.8 ams2rst_script/ConvertAMS2RST.py AimmsXLLibrary.ams
 
 linkcheck:
   stage: test
   script:
-  - python3 -msphinx -W -b linkcheck . _build/linkcheck
+  - python3.8 -msphinx -W -b linkcheck . _build/linkcheck
   tags: 
     - ubuntu
   retry: 1
@@ -25,7 +25,7 @@ linkcheck:
 spellcheck:
   stage: test
   script:
-  - python3 -msphinx -W --keep-going -b spelling . _build/spelling
+  - python3.8 -msphinx -W --keep-going -b spelling . _build/spelling
   allow_failure: true
   tags: 
     - ubuntu
@@ -33,14 +33,15 @@ spellcheck:
 build:
   stage: test
   script:
-    - sphinx-build -W --keep-going -b html . _build/html 
+    - python3.8 -msphinx -W --keep-going -b html . _build/html 
   tags: 
     - ubuntu
 
 deploy:
   stage: build-and-deploy
   script:
-    - sphinx-build -b html . _build/html
+    - python3.8 -msphinx -b html . _build/html
+    - python3.8 -msphinx.ext.intersphinx _build/html/objects.inv > _build/html/help_index_aimmsxllibrary.txt
     - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com/aimmsxllibrary/
   tags: 
     - ubuntu
