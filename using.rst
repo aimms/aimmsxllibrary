@@ -148,4 +148,5 @@ There is no ``WriteList`` but a one-dimensional identifier with :any:`axll::Writ
 
 .. note:: 
 
-    :any:`IdentifierReference <axll::WriteTable::IdentifierReference>` in :any:`axll::WriteTable` must be a 2+ dimensional identifier but for :any:`axll::WriteCompositeTable`, 1+ is sufficient. 
+    - :any:`IdentifierReference <axll::WriteTable::IdentifierReference>` in :any:`axll::WriteTable` must be a 2+ dimensional identifier but for :any:`axll::WriteCompositeTable`, 1+ is sufficient. 
+    - :any:`IncludeEmptyRows <axll::WriteTable::IncludeEmptyRows>` in :any:`axll::WriteTable` will look at the top parent set for the base index of the identifier. When passing an index pointing at a subset, this top parent set is used and the subset is ignored.
