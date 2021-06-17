@@ -19,7 +19,7 @@ import os
 
 # -- Project information -----------------------------------------------------
 
-project = u'master'
+project = u'AIMMSXLLibrary'
 copyright = u'2021, AIMMS User Support'
 author = u'AIMMS User Support'
 
