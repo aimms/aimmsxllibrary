@@ -123,8 +123,14 @@ html_theme_options = {
     'display_community_embeddable' : Display_3rd_Party_Extensions,
     'google_analytics_id': 'UA-1290545-13',
     'generate_google_analytics' : Display_3rd_Party_Extensions,
-    'display_algolia_search': False,
     'display_local_toc' : True,
+    'display_algolia_search' : Display_3rd_Party_Extensions,
+    'algolia_appid': 'BH4D9OD16A', 
+    'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
+    'algolia_indexname': 'aimms',
+    'display_help_and_feedback' : True,
+    'is_github' : True,
+    'repo_url' : "https://github.com/aimms/aimmsxllibrary",
 
 }
 
