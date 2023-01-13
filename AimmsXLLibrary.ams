@@ -137,7 +137,7 @@ LibraryModule Library_AimmsXLLibrary {
 					of the cell such that the value can be correctly written.
 					If you set this option to 1, the format will *not* be checked and values are just copied to the cell, leaving the format as is.
 					
-					Setting this option to 1 is especially usefull when your sheet contains cells with a custom format for which it unclear what 
+					Setting this option to 1 is especially useful when your sheet contains cells with a custom format for which it unclear what 
 					type of values can be written into it."
 				}
 			}
@@ -933,7 +933,7 @@ LibraryModule Library_AimmsXLLibrary {
 					
 					**Examples:**
 					
-					- 2-dimensional with one index in rows and one index in colums: 
+					- 2-dimensional with one index in rows and one index in columns: 
 					
 					  .. code::
 					  
@@ -1061,7 +1061,7 @@ LibraryModule Library_AimmsXLLibrary {
 					
 					**Examples:**
 					
-					- 2-dimensional with one index in rows and one index in colums: 
+					- 2-dimensional with one index in rows and one index in columns: 
 					
 					  .. code::
 					  
