@@ -1,0 +1,5 @@
+xls
+xlsx
+subsetOf
+myString
+th

@@ -13,6 +13,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
 import os
+import sphinx_aimms_theme
 
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -44,6 +45,7 @@ extensions = [
 	  'sphinx.builders.linkcheck',
     'sphinx.ext.intersphinx',
     'sphinx_aimms_theme',
+    'sphinxcontrib.spelling'
 ]
     
 intersphinx_mapping = {'aimmsdoc': ('https://documentation.aimms.com',
@@ -64,6 +66,11 @@ if os.name != 'nt':
 
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates']
+
+# Getting the spelling word list from the sphinx-aimms-theme
+spelling_word_list_filename = [os.path.join(os.path.dirname(sphinx_aimms_theme.__file__),"spelling_wordlist.txt") ,"spelling_wordlist.txt"]
+
+spelling_filters = ['enchant.tokenize.URLFilter','sphinx_aimms_theme.AIMMSspellingFilters.ProperNounsFilter']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
